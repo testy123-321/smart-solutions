@@ -1,6 +1,0 @@
-{
-  "name": "Smart Hospitality & Sustainable Tourism Simulator",
-  "description": "An interactive, multi-scenario management game designed for a classroom setting. Teams manage a Dutch bungalow park or campsite and make strategic sustainability and transport choices across 20 rounds to try to achieve Green Key certification.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
