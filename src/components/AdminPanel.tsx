@@ -3,6 +3,37 @@ import { supabase } from '../supabaseClient';
 import { Play, Pause } from 'lucide-react';
 
 export default function AdminPanel() {
+  const [password, setPassword] = useState('')
+const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+const handleLogin = (e: React.FormEvent) => {
+  e.preventDefault()
+  if (password === 'SmartSolutions') {
+    setIsAuthenticated(true)
+  } else {
+    alert('Incorrect password')
+  }
+}
+
+if (!isAuthenticated) {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-slate-900 text-white p-4">
+      <form onSubmit={handleLogin} className="bg-slate-800 p-8 rounded-lg shadow-xl max-w-md w-full">
+        <h2 className="text-2xl font-bold mb-6 text-center">Admin Access</h2>
+        <input 
+          type="password" 
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)} 
+          placeholder="Enter secret password"
+          className="w-full p-3 bg-slate-700 rounded border border-slate-600 mb-4 focus:outline-none focus:border-blue-500 text-white"
+        />
+        <button type="submit" className="w-full p-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded transition">
+          Enter Dashboard
+        </button>
+      </form>
+    </div>
+  )
+}
   const [teams, setTeams] = useState<any[]>([]);
   const [globalSettings, setGlobalSettings] = useState<any>({ is_paused: false });
   const [loading, setLoading] = useState(true);
